@@ -1,13 +1,15 @@
 package com.example.springbootwithmongodb.hotel;
 
+import com.example.springbootwithmongodb.commons.CustomNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class HotelService {
 
-    private HotelRepository hotelRepository;
+    private final HotelRepository hotelRepository;
 
     public HotelService(HotelRepository hotelRepository) {
         this.hotelRepository = hotelRepository;
@@ -25,6 +27,12 @@ public class HotelService {
 //  The save() will update a particular document and if id not provided, it will insert
     public Hotel updateHotel(Hotel hotel) {
         return this.hotelRepository.save(hotel);
+    }
+
+    public Optional<Hotel> getById(String id) {
+        Optional<Hotel> hotel = this.hotelRepository.findById(id);
+        if(hotel.isEmpty()) throw new CustomNotFoundException("Hotel details not found exception");
+        return hotel;
     }
 
 }
