@@ -17,4 +17,9 @@ public class HotelService {
         return this.hotelRepository.findAll();
     }
 
+//  The insert() will add the resource. If a duplicate object id provided, it gives 500 error
+    public Hotel addHotel(Hotel hotel) {
+        return this.hotelRepository.insert(hotel);
+    }
+
 }
