@@ -22,4 +22,9 @@ public class HotelService {
         return this.hotelRepository.insert(hotel);
     }
 
+//  The save() will update a particular document and if id not provided, it will insert
+    public Hotel updateHotel(Hotel hotel) {
+        return this.hotelRepository.save(hotel);
+    }
+
 }

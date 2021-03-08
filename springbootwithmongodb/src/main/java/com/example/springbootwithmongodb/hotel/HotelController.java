@@ -25,4 +25,9 @@ public class HotelController {
     public ResponseEntity<Hotel> addHotel(@RequestBody Hotel hotel){
         return new ResponseEntity<>(hotelService.addHotel(hotel), HttpStatus.CREATED);
     }
+
+    @PutMapping
+    public ResponseEntity<Hotel> updateHotel(@RequestBody Hotel hotel){
+        return new ResponseEntity<>(hotelService.updateHotel(hotel), HttpStatus.OK);
+    }
 }
