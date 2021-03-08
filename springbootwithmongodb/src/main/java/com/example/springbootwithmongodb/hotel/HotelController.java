@@ -41,4 +41,10 @@ public class HotelController {
     public ResponseEntity<List<Hotel>> getByPricePerNight(@PathVariable("maxPrice") int maxPrice){
         return new ResponseEntity<>(hotelService.getByPricePerNight(maxPrice), HttpStatus.OK);
     }
+
+    @GetMapping("/address/{city}")
+    public ResponseEntity<List<Hotel>> getByCity(@PathVariable("city") String city){
+        return new ResponseEntity<>(hotelService.getByCity(city), HttpStatus.OK);
+    }
+    
 }

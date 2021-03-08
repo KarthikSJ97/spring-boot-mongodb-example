@@ -39,4 +39,8 @@ public class HotelService {
         return this.hotelRepository.findByPricePerNightLessThan(maxPrice);
     }
 
+    public List<Hotel> getByCity(String city) {
+        return this.hotelRepository.findByCity(city);
+    }
+
 }
